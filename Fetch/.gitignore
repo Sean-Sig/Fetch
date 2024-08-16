@@ -1,0 +1,13 @@
+# OSX
+.DS_Store
+
+# Xcode
+/.build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm/config/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+# Swiftling
+swiftlint.result.json
