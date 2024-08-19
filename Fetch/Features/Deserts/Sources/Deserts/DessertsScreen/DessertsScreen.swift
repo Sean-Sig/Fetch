@@ -20,6 +20,9 @@ public struct DessertsScreen: View {
                 await viewModel.send(action: .fetch)
             }
         }
+        .refreshable {
+            await viewModel.send(action: .refresh)
+        }
         .navigationTitle("Desserts")
     }
 }

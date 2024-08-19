@@ -14,6 +14,7 @@ struct DessertDetailItemView: View {
                 } placeholder: {
                     Rectangle()
                     .fill(.gray)
+                    .frame(height: 300)
                 }
             }
             
