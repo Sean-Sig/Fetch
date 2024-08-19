@@ -1,4 +1,5 @@
 import Foundation
+import CommonFoundation
 
 enum APIError: Error {
     case invalidURL
@@ -6,37 +7,35 @@ enum APIError: Error {
     case decodingFailed
 }
 
-enum PaymentsListAction: AsyncActions {
+enum DessertsListAction: AsyncActions {
     case fetch
     case refresh
     case setError(EquatableError?)
 }
 
-class DesertsScreenViewModel: ObservableObject {
+class DessertsScreenViewModel: ObservableObject {
     @Published private(set) var model = AsyncModel(
-            value: DesertsListModel(
+            value: DessertsListModel(
                 meals: []
         )
     )
         
-    func send(action: PaymentsListAction) async {
+    func send(action: DessertsListAction) async {
         switch action {
         case .fetch, .refresh:
             do {
                 guard let url = URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert") else {
-                    throw EquatableError(APIError.invalidURL)
+                    throw APIError.invalidURL
                 }
                 
                 let (data, response) = try await URLSession.shared.data(from: url)
-                
-                print(data)
-                
+                                
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                     throw APIError.requestFailed
                 }
                 
                 let decoder = JSONDecoder()
-                let apiResponse = try decoder.decode(DesertsListModel.self, from: data)
+                let apiResponse = try decoder.decode(DessertsListModel.self, from: data)
                 
                 DispatchQueue.main.async {
                     self.model = AsyncModel(value: apiResponse)

@@ -4,7 +4,7 @@ import Deserts
 struct DesertsNavigationView: View {
     var body: some View {
         NavigationView {
-            DesertsScreen()
+            DessertsScreen()
         }
     }
 }

@@ -1,18 +1,17 @@
 import SwiftUI
 
-public struct DesertsScreen: View {
-    @StateObject var viewModel = DesertsScreenViewModel()
+struct DessertDetailsScreen: View {
+    @State var title = ""
+    @StateObject var viewModel = DesertDetailsScreenViewModel("")
     
-    public init() {}
-    
-    public var body: some View {
+    var body: some View {
         VStack {
             if viewModel.model.isLoading {
                 Text("loading...")
             } else if viewModel.model.error != nil {
                 Text("Error")
             } else {
-                DesertsListView(desertsListModel: viewModel.model.value)
+                DessertDetailsListView(desertsListModel: viewModel.model.value)
             }
         }
         .onAppear {
@@ -20,11 +19,13 @@ public struct DesertsScreen: View {
                 await viewModel.send(action: .fetch)
             }
         }
+        .navigationTitle(title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #if DEBUG
 #Preview {
-    DesertsScreen()
+    DessertDetailsScreen(title: "Apple & Blackberry Crumble")
 }
 #endif

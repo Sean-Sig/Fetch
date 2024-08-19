@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3080E83E2C73BE8A00F1861D /* CommonFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 3080E83D2C73BE8A00F1861D /* CommonFoundation */; };
 		30CD1A7B2C6F86800068D459 /* FetchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CD1A7A2C6F86800068D459 /* FetchApp.swift */; };
 		30CD1A7F2C6F86810068D459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30CD1A7E2C6F86810068D459 /* Assets.xcassets */; };
 		30CD1A832C6F86810068D459 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30CD1A822C6F86810068D459 /* Preview Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3080E83C2C73BE0E00F1861D /* CommonFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonFoundation; sourceTree = "<group>"; };
 		30CD1A772C6F86800068D459 /* Fetch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fetch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30CD1A7A2C6F86800068D459 /* FetchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchApp.swift; sourceTree = "<group>"; };
 		30CD1A7E2C6F86810068D459 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3080E83E2C73BE8A00F1861D /* CommonFoundation in Frameworks */,
 				30CD1A9C2C6F8CCB0068D459 /* Deserts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3080E83B2C73BDAF00F1861D /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				3080E83C2C73BE0E00F1861D /* CommonFoundation */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		30CD1A6E2C6F86800068D459 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +75,7 @@
 			children = (
 				30CD1A892C6F86D90068D459 /* Host */,
 				30CD1A982C6F885C0068D459 /* Features */,
+				3080E83B2C73BDAF00F1861D /* Foundation */,
 				30CD1A7E2C6F86810068D459 /* Assets.xcassets */,
 				30CD1A802C6F86810068D459 /* Fetch.entitlements */,
 				30CD1A812C6F86810068D459 /* Preview Content */,
@@ -172,6 +184,7 @@
 			name = Fetch;
 			packageProductDependencies = (
 				30CD1A9B2C6F8CCB0068D459 /* Deserts */,
+				3080E83D2C73BE8A00F1861D /* CommonFoundation */,
 			);
 			productName = Fetch;
 			productReference = 30CD1A772C6F86800068D459 /* Fetch.app */;
@@ -452,6 +465,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3080E83D2C73BE8A00F1861D /* CommonFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonFoundation;
+		};
 		30CD1A9B2C6F8CCB0068D459 /* Deserts */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Deserts;
