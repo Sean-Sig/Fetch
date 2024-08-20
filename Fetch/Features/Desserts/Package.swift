@@ -8,14 +8,14 @@ private extension Target.Dependency {
 }
 
 let package = Package(
-    name: "Deserts",
+    name: "Desserts",
     defaultLocalization: "en",
     platforms: [.iOS(.v15)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Deserts",
-            targets: ["Deserts"])
+            name: "Desserts",
+            targets: ["Desserts"])
     ],
     dependencies: [
         .package(name: "CommonFoundation", path: "../../Foundation/CommonFoundation")
@@ -24,13 +24,13 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Deserts",
+            name: "Desserts",
             dependencies: [
                 .commonFoundation
             ]
         ),
         .testTarget(
-            name: "DesertsTests",
-            dependencies: ["Deserts"])
+            name: "DessertsTests",
+            dependencies: ["Desserts"])
     ]
 )

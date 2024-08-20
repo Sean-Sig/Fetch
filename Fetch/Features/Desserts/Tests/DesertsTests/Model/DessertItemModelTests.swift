@@ -1,5 +1,5 @@
 import XCTest
-@testable import Deserts
+@testable import Desserts
 
 final class DessertItemModelTests: XCTestCase {
 

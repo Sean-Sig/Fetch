@@ -2,14 +2,14 @@ import SwiftUI
 
 struct RootTabView: View {
 
-    let rootTabItems: [RootTabItem] = [.deserts]
+    let rootTabItems: [RootTabItem] = [.desserts]
 
     var body: some View {
         TabView {
             ForEach(rootTabItems, id: \.self) { tabItem in
                 switch tabItem {
-                case .deserts:
-                    desertsRootTabView
+                case .desserts:
+                    dessertsRootTabView
                         .tag(tabItem)
                 }
             }
@@ -18,11 +18,11 @@ struct RootTabView: View {
 }
 
 private extension RootTabView {
-    var desertsRootTabView: some View {
-        DesertsNavigationView()
+    var dessertsRootTabView: some View {
+        DessertsNavigationView()
             .tabItem {
                 Label {
-                    Text("Deserts")
+                    Text("Desserts")
                 } icon: {
                     Image(systemName: "house")
                 }

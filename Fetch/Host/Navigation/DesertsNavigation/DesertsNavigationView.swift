@@ -1,7 +1,7 @@
 import SwiftUI
-import Deserts
+import Desserts
 
-struct DesertsNavigationView: View {
+struct DessertsNavigationView: View {
     var body: some View {
         NavigationView {
             DessertsScreen()
@@ -11,6 +11,6 @@ struct DesertsNavigationView: View {
 
 #if DEBUG
 #Preview {
-    DesertsNavigationView()
+    DessertsNavigationView()
 }
 #endif

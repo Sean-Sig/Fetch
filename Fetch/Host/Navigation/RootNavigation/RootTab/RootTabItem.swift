@@ -1,7 +1,7 @@
 import Foundation
 
 enum RootTabItem: Int {
-    case deserts
+    case desserts
 }
 
 extension RootTabItem: Identifiable {
