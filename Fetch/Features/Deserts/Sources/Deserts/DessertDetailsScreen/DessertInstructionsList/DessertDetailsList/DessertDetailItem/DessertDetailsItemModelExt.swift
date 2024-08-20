@@ -27,7 +27,6 @@ extension DessertDetailItemModel {
         .compactMap { $0 }
         .filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
     }
-    
     var measurements: [String] {
         return [
             strMeasure1,

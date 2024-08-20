@@ -15,7 +15,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "Deserts",
-            targets: ["Deserts"]),
+            targets: ["Deserts"])
     ],
     dependencies: [
         .package(name: "CommonFoundation", path: "../../Foundation/CommonFoundation")
@@ -26,11 +26,11 @@ let package = Package(
         .target(
             name: "Deserts",
             dependencies: [
-                .commonFoundation,
+                .commonFoundation
             ]
         ),
         .testTarget(
             name: "DesertsTests",
-            dependencies: ["Deserts"]),
+            dependencies: ["Deserts"])
     ]
 )

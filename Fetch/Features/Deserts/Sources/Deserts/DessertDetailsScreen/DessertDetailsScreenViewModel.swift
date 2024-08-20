@@ -14,11 +14,11 @@ class DesertDetailsScreenViewModel: ObservableObject {
                 meals: []
         )
     )
-    
+
     init(_ mealId: String) {
         self.mealId = mealId
     }
-        
+
     func send(action: DessertsDetailsAction) async {
         switch action {
         case .fetch, .refresh:
@@ -28,14 +28,14 @@ class DesertDetailsScreenViewModel: ObservableObject {
                 }
 
                 let (data, response) = try await URLSession.shared.data(from: url)
-                                
+
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                     throw APIError.requestFailed
                 }
-                
+
                 let decoder = JSONDecoder()
                 let apiResponse = try decoder.decode(DesertDetailsListModel.self, from: data)
-                
+
                 DispatchQueue.main.async {
                     self.model = AsyncModel(value: apiResponse)
                 }

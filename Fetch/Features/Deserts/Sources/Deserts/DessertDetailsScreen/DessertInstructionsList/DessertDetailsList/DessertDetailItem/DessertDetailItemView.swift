@@ -5,7 +5,6 @@ struct DessertDetailItemView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            
             if let avatarURL = dessertDetailsItemModel.strMealThumb {
                 AsyncImage(url: avatarURL) { image in
                     image
@@ -17,15 +16,12 @@ struct DessertDetailItemView: View {
                     .frame(height: 300)
                 }
             }
-            
             HStack {
                 Text("Instructions")
                     .font(.headline)
             }
             .padding(8)
-            
             Text(dessertDetailsItemModel.strInstructions)
-            
             HStack {
                 Text("Ingredients")
                     .font(.headline)
@@ -33,20 +29,25 @@ struct DessertDetailItemView: View {
             .padding(8)
             HStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 8) {
-                    ForEach(Array(dessertDetailsItemModel.ingredients.enumerated()), id: \.offset) { index, ingredient in
+                    ForEach(
+                        Array(dessertDetailsItemModel.ingredients.enumerated()),
+                        id: \.offset
+                    ) { _, ingredient in
                         Text(ingredient)
                             .padding(.vertical, 2)
                     }
                 }
                 Spacer()
                 VStack(spacing: 8) {
-                    ForEach(Array(dessertDetailsItemModel.measurements.enumerated()), id: \.offset) { index, measurement in
+                    ForEach(
+                        Array(dessertDetailsItemModel.measurements.enumerated()),
+                        id: \.offset
+                    ) { _, measurement in
                         Text(measurement)
                             .padding(.vertical, 2)
                     }
                 }
             }
-            
         }
         .padding()
     }

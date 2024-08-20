@@ -2,9 +2,9 @@ import SwiftUI
 
 public struct DessertsScreen: View {
     @StateObject var viewModel = DessertsScreenViewModel()
-    
+
     public init() {}
-    
+
     public var body: some View {
         VStack {
             if viewModel.model.isLoading {

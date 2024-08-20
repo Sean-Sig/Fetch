@@ -3,7 +3,7 @@ import SwiftUI
 struct DessertDetailsScreen: View {
     @State var title = ""
     @StateObject var viewModel = DesertDetailsScreenViewModel("")
-    
+
     var body: some View {
         VStack {
             if viewModel.model.isLoading {
