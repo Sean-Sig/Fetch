@@ -11,7 +11,9 @@ struct DessertDetailsScreen: View {
             } else if viewModel.model.error != nil {
                 Text("Error")
             } else {
-                DessertDetailsListView(desertsListModel: viewModel.model.value)
+                DessertDetailsListView(
+                    desertDetailsListModel: viewModel.model.value
+                )
             }
         }
         .onAppear {

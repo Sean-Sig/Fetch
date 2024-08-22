@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct DessertDetailsListView: View {
-    var desertsListModel: DesertDetailsListModel
+    var desertDetailsListModel: DesertDetailsListModel
 
     var body: some View {
         ScrollView {
-            ForEach(desertsListModel.meals, id: \.id) { row in
+            ForEach(desertDetailsListModel.meals, id: \.id) { row in
                 DessertDetailItemView(
                     dessertDetailsItemModel: row
                 )
@@ -17,6 +17,6 @@ struct DessertDetailsListView: View {
 
 #if DEBUG
 #Preview {
-    DessertDetailsListView(desertsListModel: .desertDetailsMock)
+    DessertDetailsListView(desertDetailsListModel: .desertDetailsMock)
 }
 #endif
