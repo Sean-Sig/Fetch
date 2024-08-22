@@ -7,12 +7,10 @@ enum DessertsDetailsAction: AsyncActions {
     case setError(EquatableError?)
 }
 
-class DesertDetailsScreenViewModel: ObservableObject {
+final class DesertDetailsScreenViewModel: ObservableObject {
     private var mealId: String = ""
     @Published private(set) var model = AsyncModel(
-            value: DesertDetailsListModel(
-                meals: []
-        ), isLoading: true
+            value: DesertDetailsListModel(meals: []), isLoading: true
     )
 
     init(_ mealId: String) {
@@ -44,11 +42,9 @@ class DesertDetailsScreenViewModel: ObservableObject {
             let decoder = JSONDecoder()
             let apiResponse = try decoder.decode(DesertDetailsListModel.self, from: data)
 
-            DispatchQueue.main.async {
-                self.model = AsyncModel(value: apiResponse)
-            }
+            self.model = AsyncModel(value: apiResponse)
         } catch {
-            print("Error fetching data: \(error)")
+            self.model.error = error.toEquatableError()
         }
     }
 }

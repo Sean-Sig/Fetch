@@ -13,25 +13,22 @@ enum DessertsListAction: AsyncActions {
     case setError(EquatableError?)
 }
 
-class DessertsScreenViewModel: ObservableObject {
+final class DessertsScreenViewModel: ObservableObject {
     @Published private(set) var model = AsyncModel(
-            value: DessertsListModel(
-                meals: []
-        ), isLoading: true
+        value: DessertsListModel(meals: []), isLoading: true
     )
 
-    @MainActor
     func send(action: DessertsListAction) async {
         switch action {
         case .fetch, .refresh:
-            await getDeserts()
+            await fetchDesserts()
         case .setError(let error):
             model.error = error
         }
     }
 
     @MainActor
-    private func getDeserts() async {
+    private func fetchDesserts() async {
         do {
             guard let url = URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert") else {
                 throw APIError.invalidURL
@@ -46,11 +43,9 @@ class DessertsScreenViewModel: ObservableObject {
             let decoder = JSONDecoder()
             let apiResponse = try decoder.decode(DessertsListModel.self, from: data)
 
-            DispatchQueue.main.async {
-                self.model = AsyncModel(value: apiResponse)
-            }
+            self.model = AsyncModel(value: apiResponse)
         } catch {
-            print("Error fetching data: \(error)")
+            self.model.error = error.toEquatableError()
         }
     }
 }
